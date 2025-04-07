@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEXUS Advertising</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease-out forwards;
+    }
+    .fade-in-delayed {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease-out forwards;
+      animation-delay: 0.3s;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-green-100 shadow-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col items-center">
+      <h1 class="text-4xl font-bold mb-1">NEXUS</h1>
+      <nav class="space-x-6 text-lg font-semibold">
+        <a href="#hero" class="hover:underline">Home</a>
+        <a href="#services" class="hover:underline">Services</a>
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="bg-green-100 py-20 text-center fade-in">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">Creative Advertising That Connects</h2>
+      <p class="text-lg text-gray-600 mb-6">We help brands stand out through innovative campaigns and modern strategies.</p>
+      <button onclick="scrollToSection('services')" class="bg-green-400 hover:bg-green-500 transition-all text-white font-semibold px-6 py-3 rounded-full shadow-md">Learn More</button>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 fade-in-delayed">
+    <div class="max-w-6xl mx-auto text-center px-4">
+      <h3 class="text-3xl font-bold mb-12">Our Services</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div class="bg-green-50 p-6 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
+          <h4 class="text-xl font-semibold mb-2">Digital Marketing</h4>
+          <p class="text-gray-600">SEO, social media, and PPC advertising.</p>
+        </div>
+        <div class="bg-green-50 p-6 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
+          <h4 class="text-xl font-semibold mb-2">Brand Strategy</h4>
+          <p class="text-gray-600">Crafting memorable brand identities.</p>
+        </div>
+        <div class="bg-green-50 p-6 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
+          <h4 class="text-xl font-semibold mb-2">Content Creation</h4>
+          <p class="text-gray-600">Video, photo, and written content.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white text-center fade-in">
+    <div class="max-w-4xl mx-auto px-4">
+      <h3 class="text-3xl font-bold mb-6">About NEXUS</h3>
+      <p class="text-gray-700 text-lg">We are a passionate team of marketers and creatives committed to delivering results-driven advertising solutions. With a focus on innovation and client success, NEXUS is your partner in growth.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-green-100 text-center fade-in-delayed">
+    <div class="max-w-xl mx-auto px-4">
+      <h3 class="text-3xl font-bold mb-6">Contact Us</h3>
+      <form onsubmit="submitForm(event)" class="space-y-4">
+        <input type="text" id="name" placeholder="Your Name" required class="w-full p-3 rounded border border-gray-300 focus:outline-none" />
+        <input type="email" id="email" placeholder="Your Email" required class="w-full p-3 rounded border border-gray-300 focus:outline-none" />
+        <textarea id="message" placeholder="Your Message" rows="4" required class="w-full p-3 rounded border border-gray-300 focus:outline-none"></textarea>
+        <button type="submit" class="bg-green-400 hover:bg-green-500 transition-all text-white font-semibold px-6 py-3 rounded-full shadow-md">Send</button>
+      </form>
+      <p id="formMessage" class="text-green-700 mt-4 font-medium"></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-green-100 text-center py-4 text-sm">
+    &copy; 2025 NEXUS Advertising. All rights reserved.
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+      document.getElementById('formMessage').textContent = "Thanks for reaching out! We'll get back to you soon.";
+      document.getElementById('name').value = "";
+      document.getElementById('email').value = "";
+      document.getElementById('message').value = "";
+    }
+  </script>
+</body>
+</html>
